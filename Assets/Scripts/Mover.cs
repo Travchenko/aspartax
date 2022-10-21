@@ -7,11 +7,13 @@ public class Mover : Fighter
     private RaycastHit2D hit;
     protected float jumpVelocity = 3.0f;
     protected float xSpeed = 1.0f;
+    private PlayerAnimation animPlayer;
 
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         rigidbody = GetComponent<Rigidbody2D>();
+        animPlayer = GetComponent<PlayerAnimation>();
     }
 
     private void Update()
@@ -27,7 +29,7 @@ public class Mover : Fighter
     {
         //reset moveDelta
         moveDelta = new Vector3(input.x * xSpeed, input.y * jumpVelocity, 0);
-
+        animPlayer.Move(input.x);
         //swap
         if (moveDelta.x > 0)
             transform.localScale = Vector3.one;

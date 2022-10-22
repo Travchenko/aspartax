@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Fighter.cs" />
     <Compile Include="Assets\Scripts\Collidable.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />
+    <Compile Include="Assets\Scripts\CameraMotor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Artwork\TempArt\Red Sprite\@Old Top Down No Aseprite\Sword Attack Animation\50x50.txt" />

@@ -69,7 +69,8 @@ public class Mover : Fighter
 
     protected bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down * 1f, platformsLayerMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, platformsLayerMask);
+        Debug.Log(raycastHit.collider);
         if(raycastHit.collider != null)
         {
             animPlayer.onGround(1);

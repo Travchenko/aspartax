@@ -15,4 +15,19 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetFloat("run", Mathf.Abs(move));
     }
+
+    public void Jump()
+    {
+        anim.SetTrigger("jump");
+    }
+
+    public void FallingDown(float falling)
+    {
+        anim.SetFloat("fallingDown", Mathf.Abs(falling));
+
+    }
+    public void onGround(float onGround)
+    {
+        anim.SetFloat("onGround", Mathf.Abs(onGround));
+    }
 }

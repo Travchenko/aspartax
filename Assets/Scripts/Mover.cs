@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Mover : Fighter
 {
+    [SerializeField] private LayerMask platformsLayerMask;
     private RaycastHit2D hit;
     protected float jumpVelocity = 3.0f;
     protected float xSpeed = 1.0f;
     private PlayerAnimation animPlayer;
+    
 
     protected virtual void Start()
     {
@@ -20,9 +22,20 @@ public class Mover : Fighter
     {
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
+            animPlayer.Jump();
             rigidbody.velocity = Vector2.up * jumpVelocity;
+            if (!IsGrounded())
+                animPlayer.FallingDown(1);
+
         }
-    }
+
+        if (!IsGrounded())
+        {
+            animPlayer.FallingDown(1);
+        }
+        else
+            animPlayer.FallingDown(0);
+     }
 
 
     protected virtual void UpdateMotor(Vector3 input)
@@ -56,6 +69,17 @@ public class Mover : Fighter
 
     protected bool IsGrounded()
     {
-        return true;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down * 1f, platformsLayerMask);
+        if(raycastHit.collider != null)
+        {
+            animPlayer.onGround(1);
+            return true;
+        }
+        else
+        {
+            animPlayer.onGround(-1);
+            return false;
+
+        }
     }
 }

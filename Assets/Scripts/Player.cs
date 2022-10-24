@@ -22,6 +22,6 @@ public class Player : Mover
         UpdateMotor(new Vector3(x, 0, 0));
 
         
-
+        
     }
 }

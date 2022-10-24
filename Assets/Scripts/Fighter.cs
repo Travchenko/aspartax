@@ -23,7 +23,7 @@ public class Fighter : MonoBehaviour
     protected Vector3 moveDelta;
 
     // All fighters can ReceiveDamage / die
-   /* protected virtual void ReceiveDamage(Damage dmg)
+    /*protected virtual void ReceiveDamage(Damage dmg)
     {
         if (Time.time - lastImmne > immuneTime)
         {
@@ -46,8 +46,8 @@ public class Fighter : MonoBehaviour
                     }
                 }
 
-           
-            GameManager.instance.ShowText(dmg.damageAmount.ToString(), 25, Color.red, transform.position, Vector3.zero, 0.5f);
+
+            //GameManager.instance.ShowText(dmg.damageAmount.ToString(), 25, Color.red, transform.position, Vector3.zero, 0.5f);
 
             if (hitpoint <= 0)
             {

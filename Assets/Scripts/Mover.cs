@@ -18,7 +18,7 @@ public class Mover : Fighter
         animPlayer = GetComponent<PlayerAnimation>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
@@ -78,7 +78,7 @@ public class Mover : Fighter
         }
         else
         {
-            animPlayer.onGround(-1);
+            animPlayer.onGround(0);
             return false;
 
         }
